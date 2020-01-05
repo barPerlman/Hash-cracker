@@ -29,10 +29,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/com/Hackathon/-social-network-server-and-client-master/Server" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Client" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="UDPClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UDPClient" />
+      <option name="MAIN_CLASS_NAME" value="Client.UDPClient" />
       <module name="hackClient" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -70,29 +76,65 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom" timestamp="1578136893833">
+    <state x="461" y="271" width="272" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1578233082474">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="461" y="271" width="272" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578233082474" />
+    <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.3453.1053@67.27.3453.1053" timestamp="1578147734539" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578140720001">
       <screen x="67" y="27" width="3453" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578135443870" />
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.3453.1053@67.27.3453.1053" timestamp="1578136893833" />
-    <state width="1807" height="278" key="GridCell.Tab.0.center" timestamp="1578136893833">
-      <screen x="67" y="27" width="3453" height="1053" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.3453.1053@67.27.3453.1053" timestamp="1578140720001" />
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1578236120420">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578135443869" />
-    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.3453.1053@67.27.3453.1053" timestamp="1578136893833" />
-    <state width="1807" height="278" key="GridCell.Tab.0.left" timestamp="1578136893832">
-      <screen x="67" y="27" width="3453" height="1053" />
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578236120420" />
+    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.3453.1053@67.27.3453.1053" timestamp="1578143199312" />
+    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1578236120420">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578135443869" />
-    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.3453.1053@67.27.3453.1053" timestamp="1578136893832" />
-    <state width="1807" height="278" key="GridCell.Tab.0.right" timestamp="1578136893833">
-      <screen x="67" y="27" width="3453" height="1053" />
+    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578236120420" />
+    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.3453.1053@67.27.3453.1053" timestamp="1578143199311" />
+    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1578236120419">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578135443869" />
-    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.3453.1053@67.27.3453.1053" timestamp="1578136893833" />
+    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578236120419" />
+    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.3453.1053@67.27.3453.1053" timestamp="1578143199311" />
+    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1578236120420">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578236120420" />
+    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.3453.1053@67.27.3453.1053" timestamp="1578143199312" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1578236137830">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578236137830" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1578236137830">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578236137830" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1578236137830">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578236137830" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1578236137830">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578236137830" />
     <state x="302" y="256" width="1372" height="592" key="new project wizard" timestamp="1578135096318">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="302" y="256" width="1372" height="592" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1578135096318" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Client/UDPClient.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

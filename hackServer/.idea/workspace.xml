@@ -29,10 +29,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/main/java/Server" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="UDPServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="UDPServer" />
+      <option name="MAIN_CLASS_NAME" value="Server.UDPServer" />
       <module name="hackServer" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -70,25 +77,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1554" height="185" key="GridCell.Tab.0.bottom" timestamp="1578136885111">
-      <screen x="67" y="27" width="3453" height="1053" />
+    <state x="595" y="480" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1578235302293">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578136151524" />
-    <state width="1554" height="185" key="GridCell.Tab.0.bottom/67.27.3453.1053@67.27.3453.1053" timestamp="1578136885111" />
-    <state width="1554" height="185" key="GridCell.Tab.0.center" timestamp="1578136885111">
-      <screen x="67" y="27" width="3453" height="1053" />
+    <state x="595" y="480" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578235302293" />
+    <state x="746" y="434" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1578235305120">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578136151524" />
-    <state width="1554" height="185" key="GridCell.Tab.0.center/67.27.3453.1053@67.27.3453.1053" timestamp="1578136885111" />
-    <state width="1554" height="185" key="GridCell.Tab.0.left" timestamp="1578136885111">
-      <screen x="67" y="27" width="3453" height="1053" />
+    <state x="746" y="434" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/67.27.1853.1053@67.27.1853.1053" timestamp="1578235305119" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578226991483">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578136151524" />
-    <state width="1554" height="185" key="GridCell.Tab.0.left/67.27.3453.1053@67.27.3453.1053" timestamp="1578136885111" />
-    <state width="1554" height="185" key="GridCell.Tab.0.right" timestamp="1578136885111">
-      <screen x="67" y="27" width="3453" height="1053" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1578226991483" />
+    <state width="1807" height="185" key="GridCell.Tab.0.bottom" timestamp="1578235851428">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578136151524" />
-    <state width="1554" height="185" key="GridCell.Tab.0.right/67.27.3453.1053@67.27.3453.1053" timestamp="1578136885111" />
+    <state width="1807" height="185" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578235851428" />
+    <state width="1554" height="185" key="GridCell.Tab.0.bottom/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201954" />
+    <state width="1807" height="185" key="GridCell.Tab.0.center" timestamp="1578235851428">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="185" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578235851428" />
+    <state width="1554" height="185" key="GridCell.Tab.0.center/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201954" />
+    <state width="1807" height="185" key="GridCell.Tab.0.left" timestamp="1578235851428">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="185" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578235851428" />
+    <state width="1554" height="185" key="GridCell.Tab.0.left/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201953" />
+    <state width="1807" height="185" key="GridCell.Tab.0.right" timestamp="1578235851428">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="185" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578235851428" />
+    <state width="1554" height="185" key="GridCell.Tab.0.right/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201954" />
   </component>
 </project>
