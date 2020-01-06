@@ -3,20 +3,24 @@ package Client;
 import DataStructures.Connections;
 import Messages.DiscoverMessage;
 import Messages.Message;
+import Messages.RequestMessage;
 
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.Scanner;
 
 class UDPClient
 {
-public static final int messageLenInBytes = 586;
-
+    public static final char OFFER_OP_CODE = 2,DISCOVER_OP_CODE = 1,REQUEST_OP_CODE = 3,ACK_OP_CODE = 4, NEGACK_OP_CODE = 5;
+    public static final int messageLenInBytes = 586;
+    public static final String teamName = "TORET";
+    public static final int timeOutForOffers = 1000, timeOutForSearcesInDomain = 15000;
+    public static boolean found = false;
+    public static int nacksCount = 0;
     public static void main(String args[]) throws Exception
     {
-        String teamName = "Anony Moose Team";
+
         InetAddress localHostIPAddress = InetAddress.getByName("127.0.0.1");
         int port = 3117;
         InetAddress broadcastIP = InetAddress.getByName("255.255.255.255");
@@ -28,42 +32,95 @@ public static final int messageLenInBytes = 586;
 
         //the following send discover and wait for offers for 1 sec.
         long currTime = System.currentTimeMillis();
-        long endTime = currTime + 1000;
-        //send DISCOVER message
+        long endTime = currTime + timeOutForOffers;
         //create socket for discover and offers
         DatagramSocket clientSocket = new DatagramSocket(); //create udp socket
+        clientSocket.setSoTimeout(timeOutForOffers);
+        //send DIscover message
         sendMessage(clientSocket,new DiscoverMessage(teamName),broadcastIP,port);
-        //wait for OFFERs
+        //wait for OFFERs for 1 second
         while (System.currentTimeMillis() < endTime){
-            receiveOfferMessage(connections,clientSocket);
+            try {
+                //get offers and add the offers servers to DB
+                receiveOfferMessage(connections,clientSocket);
+            }catch (SocketTimeoutException e){
+            }
+        }
+
+        if(connections.getHostsAddresses().size()==0){
+            System.out.println("Couldn't find servers for the task");
+            System.exit(1);
+        }
+        //get the domains of possible strings:
+        String[] domainsArr = helper.divideToDomains(hp.getHashLen(),connections.getHostsAddresses().size());
+
+        //send the domains to the offered servers
+        clientSocket.setSoTimeout(timeOutForOffers);
+        sendRequestsToAll(port, connections, hp, clientSocket, domainsArr);
+
+        //receive responses for the requests from servers for only 15 sec.:
+        currTime = System.currentTimeMillis();
+        endTime = currTime + timeOutForSearcesInDomain;
+        String ans = "";
+        while (System.currentTimeMillis() < endTime && !found && nacksCount<connections.getHostsAddresses().size()){
+            try {
+                //get offers and add the offers servers to DB
+                ans = receiveResponse(clientSocket);
+            }catch (SocketTimeoutException e){
+            }
         }
         clientSocket.close();
+        System.out.println(ans);
+        }
 
 
+    private static String receiveResponse(DatagramSocket clientSocket) throws IOException {
+        //the received packet
+        byte[] receiveData = new byte[messageLenInBytes];
+        DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+        clientSocket.receive(receivePacket);
+        String receivedData = new String(receivePacket.getData());
 
-
-
-        //BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-
-
-//        while (true) {
-//            String sentence = inFromUser.readLine();
-//
-//            sendData = sentence.getBytes();
-//
-//            //packet to send
-//            DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, localHostIPAddress, port);
-//            clientSocket.send(sendPacket);
-//            //the received packet
-//            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-//            clientSocket.receive(receivePacket);
-//            String modifiedSentence = new String(receivePacket.getData());
-//            System.out.println("FROM SERVER:" + modifiedSentence);
-//
-//
-//        }
+        //verify this message is response for us
+        if(isMyTeam(receivedData)) {
+            if (isAckMessage(receivedData)) {
+                found = true;
+                Message msg = new Message(receivedData);
+                return msg.getOriginal_string_start();
+            }
+            else if(isNackMessage(receivedData)){
+                nacksCount++;
+            }
+        }
+        return "hash source were not found";
     }
 
+    private static boolean isNackMessage(String receivedData) {
+        Message msg = new Message(receivedData);
+        return msg.getType()==NEGACK_OP_CODE;
+    }
+
+    private static boolean isAckMessage(String receivedData) {
+        Message msg = new Message(receivedData);
+        return msg.getType()==ACK_OP_CODE;
+    }
+
+    private static void sendRequestsToAll(int port, Connections connections, InputPair hp, DatagramSocket clientSocket, String[] domainsArr) throws IOException {
+        int domIndex=0;
+        for(InetAddress serverIP : connections.getHostsAddresses().keySet()){
+            char c = (char) hp.getHashLen();
+            RequestMessage msg = new RequestMessage(teamName,REQUEST_OP_CODE,hp.getHash(),c,domainsArr[domIndex],domainsArr[domIndex+1]);
+            sendMessage(clientSocket, msg,serverIP,port);
+            domIndex =domIndex+1;
+        }
+    }
+
+    /**
+     * receive packets and add the offers to offers DS
+     * @param con
+     * @param clientSocket
+     * @throws IOException
+     */
     private static void receiveOfferMessage(Connections con, DatagramSocket clientSocket) throws IOException {
         //the received packet
         byte[] receiveData = new byte[messageLenInBytes];
@@ -71,12 +128,21 @@ public static final int messageLenInBytes = 586;
         clientSocket.receive(receivePacket);
         /////////////////////////////////////////////////////////////////
         String receivedData = new String(receivePacket.getData());
-        System.out.println(receivedData);
-        if(getActualType(receivedData.charAt(32))==1){
+        if(isOfferMessage(receivedData)&&isMyTeam(receivedData)){
             InetAddress serverAddress = receivePacket.getAddress();
-            con.setNewServer(serverAddress.toString(),3117);
+            con.setNewServer(serverAddress,3117);
         }
 
+    }
+
+    private static boolean isMyTeam(String receivedData) {
+        Message msg = new Message(receivedData);
+        return msg.getTeamName().equals(teamName);
+    }
+
+    private static boolean isOfferMessage(String receivedData) {
+
+        return getActualType(receivedData.charAt(32))== OFFER_OP_CODE;
     }
 
     private static int getActualType(char charAt) {
@@ -99,7 +165,7 @@ public static final int messageLenInBytes = 586;
      */
     private static InputPair greeting() throws IOException {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to Anony Moose Team. Please enter the hash:");
+        System.out.println("Welcome to "+teamName+". Please enter the hash:");
         int hashLen = 40;
         String hash;
         boolean is_correctLen;

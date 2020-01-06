@@ -1,5 +1,7 @@
 package Server;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,7 +23,7 @@ public class HelperFunctions {
         }
     }
 
-    private String tryDeHash(String startRange, String endRange, String originalHash){
+    public String tryDeHash(String startRange, String endRange, String originalHash){
         int start = convertStringToInt(startRange);
         int end = convertStringToInt(endRange);
         int length = startRange.length();
