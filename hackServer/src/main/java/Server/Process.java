@@ -20,7 +20,7 @@ public class Process implements Runnable {
         this.socket = socket;
         Message m = new Message();
         try {
-            messageStr = m.getMessageAsStringFromBytesStream( receivePacket.getData());
+            messageStr = m.getMessageAsStringFromBytesStream(receivePacket.getData());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

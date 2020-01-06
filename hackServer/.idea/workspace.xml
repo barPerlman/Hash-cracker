@@ -82,6 +82,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="418" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578345808139">
+      <screen x="0" y="27" width="3840" height="1053" />
+    </state>
+    <state x="418" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3840.1053@0.27.3840.1053" timestamp="1578345808139" />
     <state x="801" y="271" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1578317971581">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -106,41 +110,49 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1578327963181" />
-    <state width="1807" height="235" key="GridCell.Tab.0.bottom" timestamp="1578326160392">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="315" key="GridCell.Tab.0.bottom" timestamp="1578349739012">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="315" key="GridCell.Tab.0.bottom/0.27.3840.1053@0.27.3840.1053" timestamp="1578349739012" />
     <state width="1807" height="235" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578326160392" />
     <state width="1554" height="185" key="GridCell.Tab.0.bottom/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201954" />
-    <state width="1807" height="235" key="GridCell.Tab.0.center" timestamp="1578326160391">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="315" key="GridCell.Tab.0.center" timestamp="1578349739012">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="315" key="GridCell.Tab.0.center/0.27.3840.1053@0.27.3840.1053" timestamp="1578349739012" />
     <state width="1807" height="235" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578326160391" />
     <state width="1554" height="185" key="GridCell.Tab.0.center/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201954" />
-    <state width="1807" height="235" key="GridCell.Tab.0.left" timestamp="1578326160391">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="315" key="GridCell.Tab.0.left" timestamp="1578349739011">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="315" key="GridCell.Tab.0.left/0.27.3840.1053@0.27.3840.1053" timestamp="1578349739011" />
     <state width="1807" height="235" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578326160391" />
     <state width="1554" height="185" key="GridCell.Tab.0.left/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201953" />
-    <state width="1807" height="235" key="GridCell.Tab.0.right" timestamp="1578326160391">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="315" key="GridCell.Tab.0.right" timestamp="1578349739012">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="315" key="GridCell.Tab.0.right/0.27.3840.1053@0.27.3840.1053" timestamp="1578349739012" />
     <state width="1807" height="235" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578326160391" />
     <state width="1554" height="185" key="GridCell.Tab.0.right/67.27.3453.1053@67.27.3453.1053" timestamp="1578143201954" />
-    <state width="1807" height="235" key="GridCell.Tab.1.bottom" timestamp="1578326219376">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="195" key="GridCell.Tab.1.bottom" timestamp="1578348674817">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="195" key="GridCell.Tab.1.bottom/0.27.3840.1053@0.27.3840.1053" timestamp="1578348674817" />
     <state width="1807" height="235" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578326219376" />
-    <state width="1807" height="235" key="GridCell.Tab.1.center" timestamp="1578326219376">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="195" key="GridCell.Tab.1.center" timestamp="1578348674817">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="195" key="GridCell.Tab.1.center/0.27.3840.1053@0.27.3840.1053" timestamp="1578348674817" />
     <state width="1807" height="235" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578326219376" />
-    <state width="1807" height="235" key="GridCell.Tab.1.left" timestamp="1578326219376">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="195" key="GridCell.Tab.1.left" timestamp="1578348674817">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="195" key="GridCell.Tab.1.left/0.27.3840.1053@0.27.3840.1053" timestamp="1578348674817" />
     <state width="1807" height="235" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578326219376" />
-    <state width="1807" height="235" key="GridCell.Tab.1.right" timestamp="1578326219376">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1874" height="195" key="GridCell.Tab.1.right" timestamp="1578348674817">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state width="1874" height="195" key="GridCell.Tab.1.right/0.27.3840.1053@0.27.3840.1053" timestamp="1578348674817" />
     <state width="1807" height="235" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578326219376" />
     <state x="476" y="130" width="1024" height="845" key="SettingsEditor" timestamp="1578321596430">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -150,9 +162,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578243406512" />
-    <state x="548" y="291" width="880" height="522" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1578325394499">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="96" y="291" width="880" height="522" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1578347341904">
+      <screen x="0" y="27" width="3840" height="1053" />
     </state>
+    <state x="96" y="291" width="880" height="522" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.27.3840.1053@0.27.3840.1053" timestamp="1578347341904" />
     <state x="548" y="291" width="880" height="522" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1853.1053@67.27.1853.1053" timestamp="1578325394499" />
     <state x="657" y="253" key="run.anything.popup" timestamp="1578318177340">
       <screen x="67" y="27" width="1853" height="1053" />
@@ -164,7 +177,7 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Messages/Message.java</url>
-          <line>101</line>
+          <line>89</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -178,9 +191,10 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Messages/Message.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="6" />
+          <condition expression="messageStr.charAt(32)==3" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/java/Server/Process.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

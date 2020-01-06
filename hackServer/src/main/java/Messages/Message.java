@@ -3,7 +3,6 @@ package Messages;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 
 /**
  *  the message structure is equal to all types
@@ -24,11 +23,12 @@ public class Message {
     }
     public Message(String packetStr){
         this.teamName = packetStr.substring(0,32);
+
         this.type=packetStr.charAt(32);
         this.hash = packetStr.substring(33,73);
         this.original_length = packetStr.charAt(73);
         this.original_string_start = packetStr.substring(74,74+original_length);
-        this.original_string_end = packetStr.substring(74+original_length);
+        this.original_string_end = packetStr.substring(74+256,74+256+original_length);
     }
 
     public Message(String teamName, char type, String hash,
@@ -46,9 +46,9 @@ public class Message {
     }
 
     public char getType() {
-        int actualType = type -'0';
-        char newType = (char)actualType;
-        return newType;
+       // int actualType = type -'0';
+       // char newType = (char)actualType;
+        return this.type;
     }
 
     public String getHash() {
@@ -69,19 +69,10 @@ public class Message {
 
     public byte[] getMessageAsByteStream() throws UnsupportedEncodingException {
         byte[] bytesMessage = new byte[messageLenInBytes];
+        addTeamNameToByteStream(bytesMessage);
 
-        //add the team name part into msg:
-        byte[] teamNameBytes = this.teamName.getBytes("UTF-8");
-        for(int i=0;i<32;i++){
-            if(i>=this.teamName.length()){
-                bytesMessage[i] = (byte)' ';
-            }
-            else {
-                bytesMessage[i] = teamNameBytes[i];
-            }
-        }
         //add the type:
-        bytesMessage[32] = new Character(type).toString().getBytes("UTF-8")[0];
+        bytesMessage[32] = (byte)this.type;
         int j = 33;
         int lastJ=j;
         //add hash str
@@ -96,7 +87,7 @@ public class Message {
             lastJ=j;
         }
         //add original length
-        bytesMessage[lastJ] = new Character(original_length).toString().getBytes("UTF-8")[0];
+        bytesMessage[lastJ] = (byte)original_length;
         j = lastJ + 1;
         //add orig start
         byte[] startBytes = this.original_string_start.getBytes("UTF-8");
@@ -122,79 +113,26 @@ public class Message {
         }
         return bytesMessage;
     }
-    /////////////////////////////////////////////////////////////////////////////////////////
-    public String getMessageAsStringFromBytesStream(byte[] stream) throws UnsupportedEncodingException {
-        //byte[] bytesMessage = new byte[messageLenInBytes];
+
+    private void addTeamNameToByteStream(byte[] bytesMessage) throws UnsupportedEncodingException {
         //add the team name part into msg:
+        byte[] teamNameBytes = this.teamName.getBytes("UTF-8");
+        for(int i=0;i<32;i++){
+            if(i>=this.teamName.length()){
+                bytesMessage[i] = (byte)' ';
+            }
+            else {
+                bytesMessage[i] = teamNameBytes[i];
+            }
+        }
+    }
 
-
-
-        String message = new String(stream, StandardCharsets.UTF_8);
-
-
-
-        Message strMessage = new Message(message);
-        int newType=message.charAt(32) + '0';
-        strMessage.setType((char)newType);
-
-        String msg2= message.substring(0,32);
-        msg2+=(char)newType;
-        msg2+=message.substring(33);
-
-//        byte[] teamNameBytes = this.teamName.getBytes("UTF-8");
-//        for(int i=0;i<32;i++){
-//            if(i>=this.teamName.length()){
-//                bytesMessage[i] = (byte)' ';
-//            }
-//            else {
-//                bytesMessage[i] = teamNameBytes[i];
-//            }
-//        }
-//        //add the type:
-//        bytesMessage[32] = new Character(type).toString().getBytes("UTF-8")[0];
-//        int j = 33;
-//        int lastJ=j;
-//        //add hash str
-//        byte[] hashBytes = this.hash.getBytes("UTF-8");
-//        for(int k = 0;k<40;k++) {
-//            if (k >= this.hash.length()) {
-//                bytesMessage[j] = (byte) ' ';
-//            } else {
-//                bytesMessage[j] = hashBytes[k];
-//            }
-//            j++;
-//            lastJ=j;
-//        }
-//        //add original length
-//        bytesMessage[lastJ] = new Character(original_length).toString().getBytes("UTF-8")[0];
-//        j = lastJ + 1;
-//        //add orig start
-//        byte[] startBytes = this.original_string_start.getBytes("UTF-8");
-//        for(int k = 0;k<256;k++) {
-//            if (k >= this.original_string_start.length()) {
-//                bytesMessage[j] = (byte) ' ';
-//            } else {
-//                bytesMessage[j] = startBytes[k];
-//            }
-//            j++;
-//            lastJ=j;
-//        }
-//        //add orig end
-//        j = lastJ;
-//        byte[] endBytes = this.original_string_end.getBytes("UTF-8");
-//        for(int k = 0;k<256;k++) {
-//            if (k >= this.original_string_end.length()) {
-//                bytesMessage[j] = (byte) ' ';
-//            } else {
-//                bytesMessage[j] = endBytes[k];
-//            }
-//            j++;
-//        }
-//        return bytesMessage;
-        return msg2;
+    public String getMessageAsStringFromBytesStream(byte[] stream) throws UnsupportedEncodingException {
+        String messageString = new String(stream);    //the converted byte array to string
+        return messageString;
     }
 
     private void setType(char newType) {
-        this.type=newType;
+        this.type = newType;
     }
 }

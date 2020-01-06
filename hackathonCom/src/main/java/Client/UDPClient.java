@@ -61,7 +61,7 @@ class UDPClient
         //receive responses for the requests from servers for only 15 sec.:
         currTime = System.currentTimeMillis();
         endTime = currTime + timeOutForSearcesInDomain;
-        String ans = "";
+        String ans = "hash source were not found!";
         while (System.currentTimeMillis() < endTime && !found && nacksCount<connections.getHostsAddresses().size()){
             try {
                 //get offers and add the offers servers to DB
@@ -137,7 +137,11 @@ class UDPClient
 
     private static boolean isMyTeam(String receivedData) {
         Message msg = new Message(receivedData);
-        return msg.getTeamName().equals(teamName);
+        String teamNamePaddedWithSpaces = teamName;
+        for (int i=0;i<32-teamName.length();i++){
+            teamNamePaddedWithSpaces+=" ";
+        }
+        return msg.getTeamName().equals(teamNamePaddedWithSpaces);
     }
 
     private static boolean isOfferMessage(String receivedData) {
@@ -145,8 +149,8 @@ class UDPClient
         return getActualType(receivedData.charAt(32))== OFFER_OP_CODE;
     }
 
-    private static int getActualType(char charAt) {
-        return charAt + '0';
+    private static char getActualType(char charAt) {
+        return (char)charAt;
     }
 
     private static void sendMessage(DatagramSocket clientSocket, Message msg, InetAddress dstAddr, int port) throws IOException {
@@ -173,6 +177,7 @@ class UDPClient
         do{     //get the hash from the user
 
             hash = inFromUser.readLine();
+            int len = hash.length();
             if(!(is_correctLen = (hash.length()==hashLen))){
                 System.out.println("insert a 40 byte of hash please");
             }
