@@ -6,8 +6,8 @@ class UDPServer
 {
     public static void main(String args[]) throws Exception
     {
-        DatagramSocket serverSocket = new DatagramSocket(3117);
-        byte[] receiveData = new byte[586];
+        DatagramSocket serverSocket = new DatagramSocket(Config.listeningPort);
+        byte[] receiveData = new byte[Config.messagePacketSize];
         while(true)     //always listening
         {
             //this thread is responsible to listen to the port

@@ -1,5 +1,6 @@
 package Messages;
 
+import Server.Config;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 import java.io.UnsupportedEncodingException;
@@ -9,7 +10,7 @@ import java.io.UnsupportedEncodingException;
  *  not mendatory fields in some message is ignored by the rcvr.
  */
 public class Message {
-    public static final int messageLenInBytes = 586;
+    public static final int messageLenInBytes = Config.messagePacketSize;
     protected String teamName="";    //our team name
     protected char type;  //type of message
     protected String hash="";
@@ -46,8 +47,6 @@ public class Message {
     }
 
     public char getType() {
-       // int actualType = type -'0';
-       // char newType = (char)actualType;
         return this.type;
     }
 
@@ -68,40 +67,27 @@ public class Message {
     }
 
     public byte[] getMessageAsByteStream() throws UnsupportedEncodingException {
-        byte[] bytesMessage = new byte[messageLenInBytes];
+        byte[] bytesMessage = new byte[messageLenInBytes];  //the message as byte stream
+        //add the team name
         addTeamNameToByteStream(bytesMessage);
-
         //add the type:
         bytesMessage[32] = (byte)this.type;
-        int j = 33;
+        int j = 33;     //current index in the building byte message
         int lastJ=j;
         //add hash str
-        byte[] hashBytes = this.hash.getBytes("UTF-8");
-        for(int k = 0;k<40;k++) {
-            if (k >= this.hash.length()) {
-                bytesMessage[j] = (byte) ' ';
-            } else {
-                bytesMessage[j] = hashBytes[k];
-            }
-            j++;
-            lastJ=j;
-        }
+        lastJ = addHashAsByteStream(bytesMessage, j, lastJ, this.hash, 40);
         //add original length
         bytesMessage[lastJ] = (byte)original_length;
         j = lastJ + 1;
         //add orig start
-        byte[] startBytes = this.original_string_start.getBytes("UTF-8");
-        for(int k = 0;k<256;k++) {
-            if (k >= this.original_string_start.length()) {
-                bytesMessage[j] = (byte) ' ';
-            } else {
-                bytesMessage[j] = startBytes[k];
-            }
-            j++;
-            lastJ=j;
-        }
+        lastJ = addOrigStartAsByteStream(bytesMessage, j, lastJ, this.original_string_start, 256);
         //add orig end
         j = lastJ;
+        addOrigEndAsByteStream(bytesMessage, j);
+        return bytesMessage;
+    }
+
+    private void addOrigEndAsByteStream(byte[] bytesMessage, int j) throws UnsupportedEncodingException {
         byte[] endBytes = this.original_string_end.getBytes("UTF-8");
         for(int k = 0;k<256;k++) {
             if (k >= this.original_string_end.length()) {
@@ -111,7 +97,34 @@ public class Message {
             }
             j++;
         }
-        return bytesMessage;
+    }
+
+    private int addOrigStartAsByteStream(byte[] bytesMessage, int j, int lastJ, String original_string_start, int i) throws UnsupportedEncodingException {
+        byte[] startBytes = original_string_start.getBytes("UTF-8");
+        for (int k = 0; k < i; k++) {
+            if (k >= original_string_start.length()) {
+                bytesMessage[j] = (byte) ' ';
+            } else {
+                bytesMessage[j] = startBytes[k];
+            }
+            j++;
+            lastJ = j;
+        }
+        return lastJ;
+    }
+
+    private int addHashAsByteStream(byte[] bytesMessage, int j, int lastJ, String hash, int i) throws UnsupportedEncodingException {
+        byte[] hashBytes = hash.getBytes("UTF-8");
+        for (int k = 0; k < i; k++) {
+            if (k >= hash.length()) {
+                bytesMessage[j] = (byte) ' ';
+            } else {
+                bytesMessage[j] = hashBytes[k];
+            }
+            j++;
+            lastJ = j;
+        }
+        return lastJ;
     }
 
     private void addTeamNameToByteStream(byte[] bytesMessage) throws UnsupportedEncodingException {
@@ -132,7 +145,4 @@ public class Message {
         return messageString;
     }
 
-    private void setType(char newType) {
-        this.type = newType;
-    }
 }

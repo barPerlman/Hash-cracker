@@ -7,7 +7,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.ServerSocket;
 
 public class Transmitter implements Runnable {
     private HelperFunctions helper;
@@ -25,7 +24,7 @@ public class Transmitter implements Runnable {
     }
 
     public void run() {
-        byte[] sendData = new byte[586];
+        byte[] sendData = new byte[Config.messagePacketSize];
         try {
             sendData = responseMsg.getMessageAsByteStream();
         } catch (UnsupportedEncodingException e) {
